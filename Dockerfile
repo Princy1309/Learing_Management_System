@@ -1,26 +1,31 @@
-# Run this project with java 21
+# Run this project with Java 21
 
 # ---------- Stage 1: Build ----------
 FROM maven:3.9.9-eclipse-temurin-21 AS build
 WORKDIR /app
 
-# Copy pom.xml and download dependencies (cached)
+# Copy only pom first to leverage layer caching for dependencies
 COPY pom.xml .
-RUN mvn dependency:go-offline
+RUN mvn -B dependency:go-offline
 
-# Copy the rest of the source code and build the JAR
+# Copy source and build the JAR
 COPY src ./src
-RUN mvn clean package -DskipTests
+RUN mvn -B clean package -DskipTests
 
 # ---------- Stage 2: Run ----------
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:21-jre-jammy AS runtime
 WORKDIR /app
 
-# Copy only the built JAR from the build stage
+# Option 1: copy the single built jar (wildcard)
 COPY --from=build /app/target/*.jar app.jar
 
-# Expose Render's port
+# Expose port (Render default is 8080)
 EXPOSE 8080
 
+# Use a non-root user (optional but recommended)
+# create user and switch to it
+RUN useradd -m appuser && chown -R appuser:appuser /app
+USER appuser
+
 # Run the Spring Boot application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
