@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Student Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#f7f9fb] min-h-screen font-sans">
+
+  <div class="flex">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-lg min-h-screen p-6">
+      <h2 class="text-2xl font-semibold mb-6 text-[#3a506b]">LMS</h2>
+      <nav class="space-y-3">
+        <a href="/dashboard-student"
+          class="block px-4 py-2 rounded-md bg-[#eaf0f6] text-[#3a506b] font-medium">Dashboard</a>
+        <a href="/mycourse" class="block px-4 py-2 rounded-md hover:bg-[#eaf0f6] text-[#5c6b73]">My Courses</a>
+        <!-- <a href="#" class="block px-4 py-2 rounded-md hover:bg-[#eaf0f6] text-[#5c6b73]">Progress</a> -->
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <main class="flex-1 p-8">
+      <header class="flex justify-between mb-8">
+        <div>
+          <h1 class="text-3xl font-semibold text-[#3a506b]">Welcome Back 👋</h1>
+          <p class="text-gray-500 text-sm">Here are your enrolled courses</p>
+        </div>
+        <button id="logoutBtn"
+          class="bg-[#c9d6df] hover:bg-[#b5c3cd] text-[#1c2541] px-4 py-2 rounded-md">Logout</button>
+      </header>
+
+<div class="mt-10">
+    <h2 class="text-2xl font-semibold text-[#1c2541] mb-4">My Courses</h2>
+    <div id="myCoursesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        </div>
+</div>
+     
+    </main>
+  </div>
+
+  <script src="/js/student-dashboard.js"></script>
+</body>
+
+</html>

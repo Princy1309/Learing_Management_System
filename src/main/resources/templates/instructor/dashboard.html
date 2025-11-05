@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Instructor Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+  <div class="flex">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white border-r min-h-screen p-6">
+      <div class="flex items-center gap-3 mb-6">
+        <img src="/images/logo-placeholder.png" alt="logo" class="w-10 h-10"/>
+        <div>
+          <h2 class="font-bold text-lg">LMS</h2>
+          <p class="text-sm text-gray-500">Instructor</p>
+        </div>
+      </div>
+
+      <nav class="space-y-2">
+        <a href="/instructor/create-course" class="block px-3 py-2 rounded hover:bg-gray-100">Create Course</a>
+        <a href="/instructor/update-course" class="block px-3 py-2 rounded hover:bg-gray-100">Update Course Content</a>
+        <a href="/instructor/enrolled-students" class="block px-3 py-2 rounded hover:bg-gray-100">Enrolled Students</a>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <main class="flex-1 p-8">
+      <header class="flex items-center justify-between mb-6">
+        <div>
+          <h1 class="text-2xl font-semibold">Create Course</h1>
+          <p class="text-sm text-gray-600">Add a new course with lessons (videos, PDFs, images, audio or text)</p>
+        </div>
+        <div>
+          <button id="logoutBtn" class="px-3 py-1 bg-gray-200 rounded">Logout</button>
+        </div>
+      </header>
+
+      <!-- Create Course Card -->
+      <section class="bg-white p-6 rounded-lg shadow max-w-3xl">
+        <label class="block mb-2 font-medium">Course Title</label>
+        <input id="courseTitle" class="w-full border p-2 rounded mb-4" placeholder="Enter course title" />
+
+        <label class="block mb-2 font-medium">Course Description</label>
+        <textarea id="courseDescription" class="w-full border p-2 rounded mb-4" rows="4" placeholder="Enter course description"></textarea>
+
+        <div id="lessonsContainer" class="space-y-4 mb-4">
+          <!-- lesson blocks added here -->
+        </div>
+
+        <div class="flex gap-2 mb-2">
+          <button id="addLessonBtn" class="bg-indigo-600 text-white px-4 py-2 rounded">Add Lesson</button>
+          <button id="createCourseBtn" class="bg-green-600 text-white px-4 py-2 rounded">Create Course</button>
+          <button id="clearBtn" class="bg-gray-300 px-4 py-2 rounded">Clear</button>
+        </div>
+
+        <p id="status" class="mt-3 text-sm text-gray-700"></p>
+      </section>
+    </main>
+  </div>
+
+  <script src="/js/instructor-dashboard.js"></script>
+</body>
+</html>

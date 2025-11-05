@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LMS - Home</title>
+
+  <!-- ✅ Browser Tab Icon -->
+  <link rel="icon" type="image/png" href="/images/logo-placeholder.png" th:href="@{/images/logo-placeholder.png}"/>
+
+  <link rel="stylesheet" href="/css/tailwind.css" th:href="@{/css/tailwind.css}">
+  <style>
+    body { 
+      font-family: Inter, Arial, sans-serif; 
+      margin: 0; 
+      display: flex; 
+      flex-direction: column; 
+      min-height: 100vh;
+    }
+    header { 
+      display:flex; 
+      justify-content:space-between; 
+      align-items:center; 
+      padding: 12px 24px; 
+      background:#0f172a; 
+      color:white; 
+    }
+    header .logo { display:flex; align-items:center; gap:12px; }
+    header a { color: #e2e8f0; text-decoration:none; margin-left:12px; }
+    main { 
+      flex: 1; 
+      padding:40px; 
+      text-align:center;
+    }
+    footer { 
+      padding: 16px 24px; 
+      background:#f1f5f9; 
+      color:#334155; 
+      text-align:center; 
+      font-size:14px; 
+      margin-top:auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="/images/logo-placeholder.png" alt="logo" width="42" height="42" th:src="@{/images/logo-placeholder.png}">
+      <div>
+        <div style="font-weight:700">Your LMS</div>
+        <div style="font-size:12px; color:#cbd5e1">Learn. Teach. Grow.</div>
+      </div>
+    </div>
+
+    <nav>
+      <a href="/login">Login</a>
+      <a href="/register">Register</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 style="font-size:28px; margin-bottom:10px">
+      Welcome to the Learning Management System 🎓
+    </h1>
+    <p style="max-width:700px; margin: 0 auto 24px">
+      A simple and powerful Learning Management System where instructors can create courses, 
+      students can enroll and learn, and admins can manage everything easily.
+    </p>
+    <p>
+      <a href="/register" 
+         style="padding:8px 16px; background:#1e293b; color:white; text-decoration:none; border-radius:6px">
+         Get started
+      </a>
+    </p>
+  </main>
+
+  <footer>
+    © <span th:text="${T(java.time.Year).now().getValue()}">2025</span> Your LMS — built with Spring Boot & Thymeleaf
+  </footer>
+</body>
+</html>

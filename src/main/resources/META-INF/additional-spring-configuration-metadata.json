@@ -1,0 +1,37 @@
+{"properties": [
+  {
+    "name": "jwt.secret",
+    "type": "java.lang.String",
+    "description": "A description for 'jwt.secret'"
+  },
+  {
+    "name": "jwt.expirationMs",
+    "type": "java.lang.Long",
+    "description": "JWT token expiration time in milliseconds."
+  },
+  {
+    "name": "aws.s3.bucket-name",
+    "type": "java.lang.String",
+    "description": "AWS S3 bucket name for file storage."
+  },
+  {
+    "name": "aws.s3.region",
+    "type": "java.lang.String",
+    "description": "AWS S3 region used for connections."
+  },
+  {
+    "name": "aws.s3.access-key",
+    "type": "java.lang.String",
+    "description": "AWS access key for S3 authentication."
+  },
+  {
+    "name": "aws.s3.secret-key",
+    "type": "java.lang.String",
+    "description": "AWS secret key for S3 authentication."
+  },
+  {
+    "name": "jwt.expirationMs",
+    "type": "java.lang.String",
+    "description": "A description for 'jwt.expirationMs'"
+  }
+]}
