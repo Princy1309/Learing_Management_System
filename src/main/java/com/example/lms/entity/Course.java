@@ -1,6 +1,8 @@
 package com.example.lms.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "courses")
+@Data
 @SQLDelete(sql = "UPDATE courses SET is_deleted = true WHERE id = ?")
 @SQLRestriction("is_deleted = false")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })

@@ -1,12 +1,15 @@
 package com.example.lms.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+@Data
 @Table(name = "lesson_progress", uniqueConstraints = {
         // A student can only complete a lesson once.
         @UniqueConstraint(columnNames = { "student_id", "lesson_id" })

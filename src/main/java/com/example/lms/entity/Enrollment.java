@@ -1,6 +1,8 @@
 package com.example.lms.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -8,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name = "enrollments", uniqueConstraints = @UniqueConstraint(columnNames = { "student_id", "course_id" }))
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-
+@Data
 public class Enrollment {
 
     @Id

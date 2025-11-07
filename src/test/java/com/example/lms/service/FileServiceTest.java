@@ -92,11 +92,6 @@ public class FileServiceTest {
 
         MockMultipartFile file = new MockMultipartFile("file", "hello.txt", "text/plain", "hello".getBytes());
 
-        // We can't verify presigner URL easily here (presigner mock not configured)
-        // But we can verify that s3Client.putObject is called and method returns
-        // non-null (or throws if misconfigured)
-        // To make this deterministic, stub s3Presigner to return a simple url using a
-        // spy on generatePresignedUrl.
         FileService spyService = Mockito.spy(fileService);
         Mockito.doReturn("https://example.com/hello").when(spyService).generatePresignedUrl(any(), anyLong());
 
